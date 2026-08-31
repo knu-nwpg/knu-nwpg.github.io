@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>연구 실적 | 강원대학교 수치모델 연구실</title>
+<link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<style>
+*, *::before, *::after{
+  font-family:'Pretendard Variable', Pretendard,
+    -apple-system, system-ui, 'Malgun Gothic', sans-serif !important;
+}
+:root{
+  --ink:#0B1F2E; --deep:#10334C; --sea:#1F6E8C; --gray:#5D7385;
+  --haze:#EDF3F6; --line:#DCE6EC; --paper:#FBFCFD; --sun:#C97E27;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-size:16px;line-height:1.8;letter-spacing:-.011em;
+  word-break:keep-all;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-weight:700;line-height:1.4;letter-spacing:-.03em;margin:0}
+p{margin:0 0 1em}
+a{color:var(--sea);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.wrap{padding:0 18px}}
+
+/* 상단 바 — index.html과 동일하게 유지하세요 */
+header{position:sticky;top:0;z-index:60;background:rgba(251,252,253,.92);
+  backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px;padding:10px 0}
+.brand{font-size:1.15rem;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-.03em}
+.brand em{display:block;font-style:normal;font-size:.78rem;font-weight:400;
+  color:var(--gray);letter-spacing:.02em}
+nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--gray);font-size:.9rem;font-weight:500;padding-bottom:4px;
+  border-bottom:1.5px solid transparent;transition:.15s}
+nav a:hover,nav a.on{color:var(--ink);border-bottom-color:var(--sea);text-decoration:none}
+@media(max-width:700px){.bar{flex-direction:column;align-items:flex-start;gap:10px}nav ul{gap:18px}}
+
+/* 페이지 제목 */
+.head{background:linear-gradient(160deg,#0C2536 0%,#10334C 60%,#1B5F7C 100%);
+  color:#fff;padding:64px 0 60px;position:relative;overflow:hidden}
+.head::after{content:"";position:absolute;inset:0;opacity:.4;
+  background:repeating-linear-gradient(178deg,rgba(255,255,255,.07) 0 1px,transparent 1px 58px)}
+.head .wrap{position:relative;z-index:1}
+.head h1{font-size:clamp(1.8rem,4vw,2.5rem);color:#fff}
+.head p{margin:12px 0 0;color:#AFD2E1;font-weight:300;font-size:1rem}
+
+/* 탭 */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin:0 0 32px;flex-wrap:wrap}
+.tab{appearance:none;background:none;border:none;cursor:pointer;
+  padding:16px 30px;font-size:1rem;font-weight:500;color:var(--gray);
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:.15s}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--ink);font-weight:700;border-bottom-color:var(--sea)}
+@media(max-width:600px){.tab{padding:13px 18px;font-size:.92rem}}
+
+/* 검색줄 */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.filters select,.filters input{
+  font-size:.9rem;padding:9px 13px;border:1px solid var(--line);
+  background:#fff;color:var(--ink);border-radius:2px;height:40px}
+.filters select{min-width:110px;cursor:pointer}
+.filters input{flex:1;min-width:200px;max-width:340px}
+.filters input::placeholder{color:#9AAEBB}
+.filters button{height:40px;padding:0 22px;border:none;border-radius:2px;cursor:pointer;
+  background:var(--deep);color:#fff;font-size:.9rem;font-weight:500;transition:background .15s}
+.filters button:hover{background:var(--sea)}
+.filters .reset{background:none;color:var(--gray);border:1px solid var(--line);padding:0 16px}
+.filters .reset:hover{background:var(--haze);color:var(--ink)}
+.count{font-size:.9rem;color:var(--gray);margin:0 0 14px}
+.count b{color:var(--sea);font-weight:700}
+
+/* 표 */
+.board{width:100%;border-collapse:collapse;border-top:2px solid var(--ink);font-size:.92rem}
+.board th{background:var(--haze);color:var(--ink);font-weight:600;
+  padding:14px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:.88rem}
+.board td{padding:16px 12px;border-bottom:1px solid var(--line);color:var(--gray);vertical-align:top}
+.board tbody tr:hover{background:#F5F9FB}
+.board .c-year,.board .c-kind,.board .c-field,.board .c-link{text-align:center;white-space:nowrap}
+.board .c-title{color:var(--ink);line-height:1.6}
+.board .c-title .au{display:block;color:var(--gray);font-size:.85rem;margin-top:4px;font-weight:300}
+.badge{display:inline-block;padding:3px 9px;font-size:.78rem;border-radius:2px;
+  background:var(--haze);color:#3D5567;white-space:nowrap}
+.badge.sci{background:#E4EFF4;color:var(--sea);font-weight:500}
+.linkbtn{display:inline-block;padding:5px 13px;background:var(--sea);color:#fff;
+  font-size:.8rem;border-radius:2px;transition:background .15s}
+.linkbtn:hover{background:var(--deep);text-decoration:none}
+.empty{padding:64px 0;text-align:center;color:var(--gray)}
+
+/* 좁은 화면에서는 표를 카드로 */
+@media(max-width:760px){
+  .board thead{display:none}
+  .board,.board tbody,.board tr,.board td{display:block;width:100%}
+  .board tr{border-bottom:1px solid var(--line);padding:16px 0}
+  .board td{border:none;padding:2px 0;text-align:left!important}
+  .board .c-title{font-weight:500;margin-bottom:8px}
+  .board .c-year,.board .c-kind,.board .c-field{display:inline-block;width:auto;margin-right:8px}
+}
+
+/* 쪽 번호 */
+.pager{display:flex;justify-content:center;gap:6px;margin:40px 0 0;flex-wrap:wrap}
+.pager button{min-width:34px;height:34px;padding:0 9px;border:1px solid var(--line);
+  background:#fff;color:var(--gray);cursor:pointer;font-size:.88rem;border-radius:2px;transition:.15s}
+.pager button:hover:not(:disabled){border-color:var(--sea);color:var(--sea)}
+.pager button.on{background:var(--sea);border-color:var(--sea);color:#fff;font-weight:600}
+.pager button:disabled{opacity:.35;cursor:default}
+
+footer{background:var(--deep);color:#C3DBE7;padding:64px 0 36px;font-size:.92rem;margin-top:96px}
+footer h2{color:#fff;font-size:1.25rem;margin-bottom:22px}
+footer a{color:#A5D3E6}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+.fgrid p{margin:0 0 8px}
+.copy{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);
+  font-size:.78rem;color:#87A7B8}
+@media(max-width:600px){.fgrid{grid-template-columns:1fr;gap:24px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html" style="color:inherit">강원대학교 수치모델 연구실<em>KNU Numerical Weather Prediction Group</em></a>
+    <nav>
+      <ul>
+        <li><a href="index.html#research">연구</a></li>
+        <li><a href="index.html#people">구성원</a></li>
+        <li><a href="publications.html" class="on">논문</a></li>
+        <li><a href="index.html#contact">연락처</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="head">
+  <div class="wrap">
+    <h1>연구 실적</h1>
+    <p>Publications &amp; Presentations</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:44px">
+  <div class="tabs" id="tabs"></div>
+
+  <div class="filters">
+    <select id="f-year"><option value="">연도</option></select>
+    <select id="f-kind"><option value="">구분</option></select>
+    <input id="f-text" type="search" placeholder="제목이나 저자를 입력하세요">
+    <button id="btn-search">검색</button>
+    <button class="reset" id="btn-reset">초기화</button>
+  </div>
+
+  <p class="count">게시글 <b id="count">0</b>건이 검색되었습니다.</p>
+
+  <table class="board">
+    <thead>
+      <tr>
+        <th style="width:80px">연도</th>
+        <th style="width:150px">구분</th>
+        <th style="width:110px">분야</th>
+        <th>제목</th>
+        <th style="width:90px">보기</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <div class="pager" id="pager"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <h2>연락처</h2>
+    <div class="fgrid">
+      <div>
+        <p>강원대학교 자연과학대학 대기환경과학과</p>
+        <p>강원특별자치도 춘천시 강원대학길 1</p>
+        <p><a href="mailto:name@kangwon.ac.kr">name@kangwon.ac.kr</a></p>
+      </div>
+      <div>
+        <p><a href="index.html">연구실 홈</a></p>
+        <p><a href="#">학과 홈페이지</a></p>
+      </div>
+    </div>
+    <p class="copy">© 2026 KNU Numerical Weather Prediction Group</p>
+  </div>
+</footer>
+
+<script src="publications-data.js"></script>
+<script>
+const TABS = ["초록", "포스터", "논문"];
+const PER_PAGE = 10;
+let state = { tab: "논문", year: "", kind: "", text: "", page: 1 };
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g,
+  c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+
+const $ = id => document.getElementById(id);
+
+/* 탭 */
+$("tabs").innerHTML = TABS.map(t =>
+  `<button class="tab${t === state.tab ? " on" : ""}" data-tab="${t}">${t}</button>`).join("");
+$("tabs").addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if (!b) return;
+  state.tab = b.dataset.tab; state.year = ""; state.kind = ""; state.text = "";
+  state.page = 1;
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x === b));
+  $("f-text").value = "";
+  fillSelects(); render();
+});
+
+/* 연도·구분 선택칸 채우기 */
+function fillSelects(){
+  const pool = RECORDS.filter(r => r.type === state.tab);
+  const years = [...new Set(pool.map(r => r.year))].sort((a,b) => b - a);
+  const kinds = [...new Set(pool.map(r => r.kind))].filter(Boolean).sort();
+  $("f-year").innerHTML = `<option value="">연도</option>` +
+    years.map(y => `<option value="${y}">${y}</option>`).join("");
+  $("f-kind").innerHTML = `<option value="">구분</option>` +
+    kinds.map(k => `<option value="${esc(k)}">${esc(k)}</option>`).join("");
+}
+
+/* 조건에 맞는 목록 */
+function filtered(){
+  const q = state.text.trim().toLowerCase();
+  return RECORDS
+    .filter(r => r.type === state.tab)
+    .filter(r => !state.year || String(r.year) === state.year)
+    .filter(r => !state.kind || r.kind === state.kind)
+    .filter(r => !q ||
+      (r.title || "").toLowerCase().includes(q) ||
+      (r.authors || "").toLowerCase().includes(q))
+    .sort((a, b) => b.year - a.year);
+}
+
+function render(){
+  const list = filtered();
+  $("count").textContent = list.length;
+
+  const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+  if (state.page > pages) state.page = pages;
+  const slice = list.slice((state.page - 1) * PER_PAGE, state.page * PER_PAGE);
+
+  $("rows").innerHTML = slice.length ? slice.map(r => `
+    <tr>
+      <td class="c-year">${esc(r.year)}</td>
+      <td class="c-kind"><span class="badge${/SCI\(E\)/.test(r.kind) ? " sci" : ""}">${esc(r.kind)}</span></td>
+      <td class="c-field">${esc(r.field)}</td>
+      <td class="c-title">${esc(r.title)}${r.authors ? `<span class="au">${esc(r.authors)}</span>` : ""}</td>
+      <td class="c-link">${r.link ? `<a class="linkbtn" href="${esc(r.link)}" target="_blank" rel="noopener">Link</a>` : "–"}</td>
+    </tr>`).join("")
+    : `<tr><td colspan="5" class="empty">해당하는 게시글이 없습니다.</td></tr>`;
+
+  let html = `<button ${state.page === 1 ? "disabled" : ""} data-p="${state.page - 1}">‹</button>`;
+  for (let i = 1; i <= pages; i++)
+    html += `<button class="${i === state.page ? "on" : ""}" data-p="${i}">${i}</button>`;
+  html += `<button ${state.page === pages ? "disabled" : ""} data-p="${state.page + 1}">›</button>`;
+  $("pager").innerHTML = pages > 1 ? html : "";
+}
+
+$("pager").addEventListener("click", e => {
+  const b = e.target.closest("button[data-p]"); if (!b || b.disabled) return;
+  state.page = Number(b.dataset.p); render();
+  window.scrollTo({ top: 260, behavior: "smooth" });
+});
+
+function search(){
+  state.year = $("f-year").value;
+  state.kind = $("f-kind").value;
+  state.text = $("f-text").value;
+  state.page = 1;
+  render();
+}
+$("btn-search").addEventListener("click", search);
+$("f-text").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
+$("f-year").addEventListener("change", search);
+$("f-kind").addEventListener("change", search);
+$("btn-reset").addEventListener("click", () => {
+  state.year = state.kind = state.text = "";
+  state.page = 1;
+  $("f-year").value = ""; $("f-kind").value = ""; $("f-text").value = "";
+  render();
+});
+
+fillSelects();
+render();
+</script>
+</body>
+</html>
