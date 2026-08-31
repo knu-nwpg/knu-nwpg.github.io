@@ -91,6 +91,25 @@ nav a:hover,nav a.on{color:var(--ink);border-bottom-color:var(--sea);text-decora
   font-size:.8rem;border-radius:2px;transition:background .15s}
 .linkbtn:hover{background:var(--deep);text-decoration:none}
 .empty{padding:64px 0;text-align:center;color:var(--gray)}
+.board .c-title .clickable{cursor:pointer;color:var(--ink)}
+.board .c-title .clickable:hover{color:var(--sea);text-decoration:underline;text-underline-offset:3px}
+
+.viewer{position:fixed;inset:0;z-index:200;display:none;
+  background:rgba(8,20,32,.72);backdrop-filter:blur(3px)}
+.viewer.on{display:flex;align-items:center;justify-content:center;padding:32px}
+.viewer .box{background:#fff;width:min(1000px,100%);height:100%;
+  display:flex;flex-direction:column;border-radius:3px;overflow:hidden}
+.viewer .vhead{display:flex;align-items:flex-start;gap:20px;
+  padding:20px 24px;border-bottom:1px solid var(--line)}
+.viewer .vhead h3{font-size:1.05rem;line-height:1.5;flex:1}
+.viewer .vhead .sub{font-size:.87rem;color:var(--gray);margin:5px 0 0;font-weight:400}
+.viewer .vhead .x{appearance:none;background:none;border:none;cursor:pointer;
+  font-size:1.6rem;line-height:1;color:var(--gray);padding:0 4px}
+.viewer .vhead .x:hover{color:var(--ink)}
+.viewer iframe{flex:1;width:100%;border:none}
+.viewer .vfoot{padding:12px 24px;border-top:1px solid var(--line);
+  font-size:.88rem;color:var(--gray)}
+@media(max-width:600px){.viewer.on{padding:0}}
 
 /* 좁은 화면에서는 표를 카드로 */
 @media(max-width:760px){
@@ -190,6 +209,20 @@ footer a{color:#A5D3E6}
   </div>
 </footer>
 
+<div class="viewer" id="viewer">
+  <div class="box">
+    <div class="vhead">
+      <div>
+        <h3 id="v-title"></h3>
+        <p class="sub" id="v-sub"></p>
+      </div>
+      <button class="x" id="v-close" aria-label="닫기">&times;</button>
+    </div>
+    <iframe id="v-frame" title="문서 보기"></iframe>
+    <p class="vfoot">문서가 보이지 않으면 <a id="v-open" href="#" target="_blank" rel="noopener">새 탭에서 열기</a></p>
+  </div>
+</div>
+
 <script src="publications-data.js"></script>
 <script>
 const TABS = ["초록", "논문"];
@@ -250,7 +283,12 @@ function render(){
       <td class="c-year">${esc(r.year)}</td>
       <td class="c-kind"><span class="badge${/SCI\(E\)/.test(r.kind) ? " sci" : ""}">${esc(r.kind)}</span></td>
       <td class="c-field">${esc(r.field)}</td>
-      <td class="c-title">${esc(r.title)}${r.authors ? `<span class="au">${esc(r.authors)}</span>` : ""}</td>
+      <td class="c-title">${
+        /\.pdf$/i.test(r.link || "")
+          ? `<span class="clickable" data-pdf="${esc(r.link)}"
+               data-t="${esc(r.title)}" data-s="${esc(r.year)} · ${esc(r.kind)}">${esc(r.title)}</span>`
+          : esc(r.title)
+      }${r.authors ? `<span class="au">${esc(r.authors)}</span>` : ""}</td>
       <td class="c-link">${r.link ? `<a class="linkbtn" href="${esc(r.link)}" target="_blank" rel="noopener">Link</a>` : "–"}</td>
     </tr>`).join("")
     : `<tr><td colspan="5" class="empty">해당하는 게시글이 없습니다.</td></tr>`;
@@ -284,6 +322,24 @@ $("btn-reset").addEventListener("click", () => {
   state.page = 1;
   $("f-year").value = ""; $("f-kind").value = ""; $("f-text").value = "";
   render();
+const viewer = $("viewer");
+$("rows").addEventListener("click", e => {
+  const s = e.target.closest("[data-pdf]"); if (!s) return;
+  $("v-title").textContent = s.dataset.t;
+  $("v-sub").textContent = s.dataset.s;
+  $("v-frame").src = s.dataset.pdf;
+  $("v-open").href = s.dataset.pdf;
+  viewer.classList.add("on");
+  document.body.style.overflow = "hidden";
+});
+function closeViewer(){
+  viewer.classList.remove("on");
+  $("v-frame").src = "";
+  document.body.style.overflow = "";
+}
+$("v-close").addEventListener("click", closeViewer);
+viewer.addEventListener("click", e => { if (e.target === viewer) closeViewer(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeViewer(); });
 });
 
 fillSelects();

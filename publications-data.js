@@ -18,12 +18,12 @@ const RECORDS = [
 
   {
     type: "초록",
-    year: 2024,
+    year: 2025,
     kind: "한국기상학회 가을학술대회",
     field: "대기역학 및 수치모델링 분과",
     title: "KIM 고해상도 모델의 집중호우 모의 성능 분석",
     authors: "이수현, 박정우, 김명진, 최석진",
-    link: "",
+    link: "files/2025_lsh_pp.pdf",
   },
 
 ];
