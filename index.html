@@ -108,17 +108,27 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 .topic p{margin:0;color:var(--gray);font-size:1.03rem;line-height:1.85;max-width:70ch}
 
 /* ── 교수 ────────────────────────────────── */
-.pi{display:grid;grid-template-columns:210px 1fr;gap:44px;align-items:start;margin-bottom:16px}
+.pi{display:grid;grid-template-colum.cv{margin-top:32px}
+.cv h4{font-size:1.08rem;font-weight:700;color:var(--ink);
+  margin:34px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.cv h4:first-child{margin-top:0}
+.cv ul{list-style:none;margin:0;padding:0}
+.cv li{position:relative;padding-left:16px;margin-bottom:9px;
+  font-size:.98rem;color:#3D5567;line-height:1.7}
+.cv li::before{content:"";position:absolute;left:0;top:.72em;
+  width:5px;height:5px;background:#A9BCC7}
+.cv .d{display:inline-block;min-width:132px;color:var(--gray);font-weight:500}
+@media(max-width:600px){
+.cv .d{display:block;min-width:0;margin-bottom:2px;font-size:.9rem}
+}ns:210px 1fr;gap:44px;align-items:start;margin-bottom:16px}
 .ph{background:var(--haze);border:1px solid var(--line);
   display:flex;align-items:center;justify-content:center;color:#9AB0BD;font-size:.8rem;overflow:hidden}
 .pi .ph{aspect-ratio:3/4}
 .pi h3{font-size:1.45rem}
 .pi .role{color:var(--sea);font-size:.96rem;margin:6px 0 20px}
 .pi > div > p{font-size:1.02rem;color:#3D5567;line-height:1.85;max-width:66ch}
-.pi dl{margin:20px 0 0;font-size:.98rem}
-.pi dl div{display:flex;gap:16px;padding:9px 0;border-top:1px solid var(--line)}
+
 .pi dt{flex:0 0 70px;color:var(--gray);font-weight:400}
-.pi dd{margin:0;flex:1}
 @media(max-width:600px){.pi{grid-template-columns:1fr;gap:22px}.pi .ph{max-width:190px}}
 
 /* ── 구성원 ──────────────────────────────── */
@@ -129,6 +139,12 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 .member .nm{font-size:1.08rem;font-weight:600;margin-top:14px}
 .member .mt{font-size:.88rem;color:var(--gray);margin-top:3px}
 .member .tp{font-size:.88rem;color:#3D5567;margin-top:7px;line-height:1.65}
+.member .rk{font-size:.85rem;color:var(--sea);font-weight:500;margin-top:4px}
+.member .ed{list-style:none;margin:7px 0 0;padding:0}
+.member .ed li{position:relative;padding-left:9px;margin-bottom:3px;
+  font-size:.84rem;color:var(--gray);line-height:1.55}
+.member .ed li::before{content:"";position:absolute;left:0;top:.62em;
+  width:3px;height:3px;background:#A9BCC7;border-radius:50%}
 .alumni{list-style:none;padding:0;margin:0;font-size:.98rem}
 .alumni li{padding:12px 0;border-bottom:1px solid var(--line);color:var(--gray)}
 .alumni li b{font-weight:600;color:var(--ink);margin-right:10px}
@@ -241,7 +257,7 @@ footer a{color:#A5D3E6}
           <ul>
             <li><span class="d">이메일</span> <a href="mailto:sjc@kangwon.ac.kr">sjc@kangwon.ac.kr</a></li>
             <li><span class="d">연락처</span> 033-640-2318</li>
-            <li><span class="d">링크</span> <a href="#">Google Scholar</a> · <a href="https://scholar.google.com/citations?hl=ko&user=L3uOt0wAAAAJ">CV</a></li>
+            <li><span class="d">링크</span> <a href="https://scholar.google.com/citations?hl=ko&user=L3uOt0wAAAAJ">Google Scholar</a></li>
           </ul>
         </div>
       </div>
@@ -266,7 +282,7 @@ footer a{color:#A5D3E6}
       </div>
     </div>
     <div class="recruit">
-      <p>학부 인턴, 석·박사과정 연구원, 박사후연구원을 모집합니다.
+      <p>학부 인턴, 석·박사과정 연구원을 모집합니다.
          관심 있는 분은 간단한 소개와 함께 메일로 연락해 주세요.</p>
     </div>
     <p class="copy">© 2026 KNU Numerical Weather Prediction Group</p>
@@ -283,12 +299,24 @@ footer a{color:#A5D3E6}
 
 const MEMBERS = [
   { group:"박사과정", list:[
-    { name:"이름", meta:"2023–", topic:"연구 주제 한 줄", photo:"" },
-    { name:"이름", meta:"2024–", topic:"연구 주제 한 줄", photo:"" },
+    { name:"이수현", rank:"랩장", meta:"2023–", topic:"한국형수치예보모델",
+      edu:[
+	"강릉원주대학교 대기환경과학과 이학사",
+	"강릉원주대학교 대기환경과학과 이학석사"
+      ], photo:"photos/shlee.jpg" },
   ]},
   { group:"석사과정", list:[
-    { name:"이름", meta:"2025–", topic:"연구 주제 한 줄", photo:"" },
-    { name:"이름", meta:"2025–", topic:"연구 주제 한 줄", photo:"" },
+    { name:"박정우", rank : "부랩장", meta:"2024–", topic:"한국형수치예보모델", 
+      edu:[
+	"강릉원주대학교 대기환경과학과 이학사"
+      ], photo:"" },
+    { name:"신재윤", meta:"2026–", topic:"한국형수치예보모델", 
+      edu:[
+	"강릉원주대학교 대기환경과학과 이학사"
+      ], photo:"" },
+  ]},
+  { group:"학석사통합과정", list:[
+    { name:"김명진", meta:"2025-", topic:"한국형수치예보모델", photo:"" },
   ]},
   { group:"학부 인턴", list:[
     { name:"이름", meta:"2026", topic:"", photo:"" },
@@ -297,7 +325,6 @@ const MEMBERS = [
 
 const ALUMNI = [
   { name:"이름", detail:"석사 (2024) · 현재 소속" },
-  { name:"이름", detail:"박사 (2023) · 현재 소속" },
 ];
 
 /* ─── 아래는 손대지 않아도 됩니다 ─────────────── */
@@ -313,9 +340,13 @@ document.getElementById("member-slot").innerHTML =
     <div class="members">${g.list.map(m => `
       <div class="member">
         ${photoBox(m.photo, m.name)}
-        <p class="nm">${esc(m.name)}</p>
+	        <p class="nm">${esc(m.name)}</p>
+        ${m.rank ? `<p class="rk">${esc(m.rank)}</p>` : ""}
         <p class="mt">${esc(m.meta)}</p>
         ${m.topic ? `<p class="tp">${esc(m.topic)}</p>` : ""}
+        ${m.edu && m.edu.length
+          ? `<ul class="ed">${m.edu.map(e => `<li>${esc(e)}</li>`).join("")}</ul>`
+          : ""}
       </div>`).join("")}
     </div>`).join("")
   + (ALUMNI.length ? `<p class="glabel">졸업생</p><ul class="alumni">${
