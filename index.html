@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>연구실 이름 | Laboratory</title>
-<meta name="description" content="연구실 한 줄 소개">
+<title>강원대학교 수치모델 연구실</title>
+<meta name="description" content="강원대학교 대기환경과학과 수치모델 연구실 — 전지구 및 지역 수치예보 모델과 역학코어 연구">
 <link rel="stylesheet" as="style" crossorigin
   href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
 <style>
 /* ══════════════════════════════════════════════════════
-   1. 색과 글꼴 — 색을 바꾸려면 여기 값만 고치세요
-   ════════════════════════════════════════════════*, *::before, *::after{
+   글꼴 — 페이지 전체를 Pretendard로 통일
+   ══════════════════════════════════════════════════════ */
+*, *::before, *::after{
   font-family:'Pretendard Variable', Pretendard,
     -apple-system, system-ui, 'Malgun Gothic', sans-serif !important;
-}══════ */
+}
 
+/* ══════════════════════════════════════════════════════
+   색 — 바꾸려면 여기 값만 고치세요
+   ══════════════════════════════════════════════════════ */
 :root{
   --ink:#0B1F2E;      /* 본문 글자 */
   --deep:#10334C;     /* 배너·푸터 배경 */
@@ -24,34 +28,33 @@
   --haze:#EDF3F6;     /* 옅은 면 */
   --line:#DCE6EC;     /* 선 */
   --paper:#FBFCFD;    /* 페이지 배경 */
-  --sun:#C97E27;      /* 포인트 (아주 조금만) */
-  --serif:'Pretendard Variable',Pretendard,system-ui,sans-serif;
-  --sans:'Pretendard Variable',Pretendard,system-ui,sans-serif;
+  --sun:#C97E27;      /* 포인트 */
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
-  font-weight:400;font-size:16px;line-height:1.8;letter-spacing:-.011em;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.4;letter-spacing:-.025em;margin:0}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-size:16px;line-height:1.8;letter-spacing:-.011em;
+  word-break:keep-all;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-weight:700;line-height:1.4;letter-spacing:-.03em;margin:0}
 p{margin:0 0 1em}
 a{color:var(--sea);text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:3px}
 :focus-visible{outline:2px solid var(--sun);outline-offset:3px}
 img{max-width:100%;display:block}
-.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.wrap{padding:0 20px}}
 
 /* ── 상단 바 ─────────────────────────────── */
-header{position:sticky;top:0;z-index:60;background:rgba(251,252,253,.9);
+header{position:sticky;top:0;z-index:60;background:rgba(251,252,253,.92);
   backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px;padding:10px 0}
-.brand{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:1.3}
-.brand em{display:block;font-family:var(--sans);font-style:normal;font-size:.7rem;
-  font-weight:400;color:var(--gray);letter-spacing:.03em}
-nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
-nav a{color:var(--gray);font-size:.875rem;font-weight:500;padding-bottom:4px;
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:66px;padding:10px 0}
+.brand{font-size:1.3rem;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-.03em}
+.brand em{display:block;font-style:normal;font-size:.85rem;font-weight:400;
+  color:var(--gray);letter-spacing:.02em}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--gray);font-size:.98rem;font-weight:500;padding-bottom:4px;
   border-bottom:1.5px solid transparent;transition:color .15s,border-color .15s}
 nav a:hover,nav a.on{color:var(--ink);border-bottom-color:var(--sea);text-decoration:none}
 @media(max-width:700px){.bar{flex-direction:column;align-items:flex-start;gap:10px}nav ul{gap:18px}}
@@ -62,37 +65,36 @@ nav a:hover,nav a.on{color:var(--ink);border-bottom-color:var(--sea);text-decora
   background:linear-gradient(165deg,#081826 0%,#10334C 45%,#1F6E8C 100%)}
 .hero .bg::after{content:"";position:absolute;inset:0;opacity:.45;
   background:repeating-linear-gradient(178deg,rgba(255,255,255,.07) 0 1px,transparent 1px 58px)}
-.hero .wrap{position:relative;z-index:1;padding-top:96px;padding-bottom:104px;max-width:1240px}
+.hero .wrap{position:relative;z-index:1;padding-top:96px;padding-bottom:104px}
 
-.hero .dept{font-size:.95rem;color:#9EC4D6;margin-bottom:22px;letter-spacing:.01em}
-.hero h1{font-size:clamp(2.4rem,5.4vw,3.9rem);color:#fff;font-weight:700;
-  letter-spacing:-.03em;max-width:none}
+.hero .dept{font-size:.98rem;color:#9EC4D6;margin-bottom:22px}
+.hero h1{font-size:clamp(2.4rem,5.4vw,3.9rem);color:#fff;font-weight:700}
 .hero .en{margin-top:14px;font-size:clamp(1.05rem,2vw,1.35rem);
   color:#AFD2E1;font-weight:300;letter-spacing:-.01em}
 
-.hero .lead{margin-top:40px;max-width:none}
+.hero .lead{margin-top:40px}
 .hero .lead p{margin:0 0 16px;color:#DCEBF2;font-weight:300;
-  font-size:1.1rem;line-height:1.95;word-break:keep-all}
+  font-size:1.13rem;line-height:1.95}
 
-.hero .goal-title{margin:44px 0 0;font-size:1.12rem;color:#fff;font-weight:700;
+.hero .goal-title{margin:44px 0 0;font-size:1.15rem;color:#fff;font-weight:700;
   padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.3);display:inline-block}
 .hero .goals{list-style:none;margin:20px 0 0;padding:0}
 .hero .goals li{position:relative;padding-left:22px;margin-bottom:13px;
-  color:#DCEBF2;font-weight:300;font-size:1.06rem;line-height:1.9;word-break:keep-all}
+  color:#DCEBF2;font-weight:300;font-size:1.08rem;line-height:1.9}
 .hero .goals li::before{content:"";position:absolute;left:0;top:.9em;
   width:8px;height:1px;background:#8CC0D6}
 
 .hero .go{display:inline-block;margin-top:44px;padding:13px 26px;
-  border:1px solid rgba(255,255,255,.5);color:#fff;font-size:.95rem;
+  border:1px solid rgba(255,255,255,.5);color:#fff;font-size:.98rem;
   transition:background .18s,color .18s}
 .hero .go:hover{background:#fff;color:var(--deep);text-decoration:none}
 
 /* ── 섹션: 왼쪽 제목 + 오른쪽 내용 ─────────── */
-section{padding:96px 0;border-top:1px solid var(--line)}
-.cols{display:grid;grid-template-columns:170px 1fr;gap:56px;align-items:start}
-.cols > h2{position:sticky;top:96px;font-size:1.25rem}
-.cols > h2 em{display:block;font-family:var(--sans);font-style:normal;
-  font-size:.72rem;font-weight:400;color:var(--gray);margin-top:5px;letter-spacing:.05em}
+section{padding:100px 0;border-top:1px solid var(--line)}
+.cols{display:grid;grid-template-columns:190px 1fr;gap:60px;align-items:start}
+.cols > h2{position:sticky;top:100px;font-size:1.45rem}
+.cols > h2 em{display:block;font-style:normal;font-size:.8rem;font-weight:400;
+  color:var(--gray);margin-top:5px;letter-spacing:.05em}
 @media(max-width:820px){
   section{padding:64px 0}
   .cols{grid-template-columns:1fr;gap:28px}
@@ -100,72 +102,61 @@ section{padding:96px 0;border-top:1px solid var(--line)}
 }
 
 /* ── 연구 분야 ───────────────────────────── */
-.topic{padding:24px 0;border-bottom:1px solid var(--line)}
+.topic{padding:26px 0;border-bottom:1px solid var(--line)}
 .topic:first-child{padding-top:0}
-.topic h3{font-size:1.08rem;margin-bottom:8px}
-.topic p{margin:0;color:var(--gray);font-size:.95rem}
+.topic h3{font-size:1.2rem;margin-bottom:10px}
+.topic p{margin:0;color:var(--gray);font-size:1.03rem;line-height:1.85;max-width:70ch}
 
 /* ── 교수 ────────────────────────────────── */
-.pi{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start;margin-bottom:16px}
+.pi{display:grid;grid-template-columns:210px 1fr;gap:44px;align-items:start;margin-bottom:16px}
 .ph{background:var(--haze);border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;color:#9AB0BD;font-size:.75rem;overflow:hidden}
+  display:flex;align-items:center;justify-content:center;color:#9AB0BD;font-size:.8rem;overflow:hidden}
 .pi .ph{aspect-ratio:3/4}
-.pi h3{font-size:1.3rem}
-.pi .role{color:var(--sea);font-size:.88rem;margin:5px 0 18px}
-.pi dl{margin:18px 0 0;font-size:.9rem}
-.pi dl div{display:flex;gap:14px;padding:8px 0;border-top:1px solid var(--line)}
-.pi dt{flex:0 0 62px;color:var(--gray);font-weight:400}
+.pi h3{font-size:1.45rem}
+.pi .role{color:var(--sea);font-size:.96rem;margin:6px 0 20px}
+.pi > div > p{font-size:1.02rem;color:#3D5567;line-height:1.85;max-width:66ch}
+.pi dl{margin:20px 0 0;font-size:.98rem}
+.pi dl div{display:flex;gap:16px;padding:9px 0;border-top:1px solid var(--line)}
+.pi dt{flex:0 0 70px;color:var(--gray);font-weight:400}
 .pi dd{margin:0;flex:1}
-@media(max-width:600px){.pi{grid-template-columns:1fr;gap:22px}.pi .ph{max-width:180px}}
+@media(max-width:600px){.pi{grid-template-columns:1fr;gap:22px}.pi .ph{max-width:190px}}
 
 /* ── 구성원 ──────────────────────────────── */
-.glabel{font-family:var(--serif);font-size:.98rem;color:var(--ink);
-  margin:46px 0 20px;padding-bottom:9px;border-bottom:1px solid var(--ink)}
-.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:28px}
+.glabel{font-size:1.1rem;font-weight:700;color:var(--ink);
+  margin:50px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:30px}
 .member .ph{aspect-ratio:1/1}
-.member .nm{font-family:var(--serif);font-size:.98rem;margin-top:13px}
-.member .mt{font-size:.8rem;color:var(--gray);margin-top:2px}
-.member .tp{font-size:.8rem;color:#3D5567;margin-top:6px;line-height:1.6}
-.alumni{list-style:none;padding:0;margin:0;font-size:.9rem}
-.alumni li{padding:11px 0;border-bottom:1px solid var(--line);color:var(--gray)}
-.alumni li b{font-weight:500;color:var(--ink);margin-right:8px}
-
-/* ── 논문 ────────────────────────────────── */
-.year{font-family:var(--serif);font-size:1.05rem;color:var(--sun);margin:34px 0 2px}
-.year:first-child{margin-top:0}
-.pubs{list-style:none;padding:0;margin:0}
-.pubs li{padding:16px 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--gray)}
-.pubs li .t{display:block;color:var(--ink);font-weight:500;margin-bottom:3px}
-.pubs li .j{font-style:italic}
+.member .nm{font-size:1.08rem;font-weight:600;margin-top:14px}
+.member .mt{font-size:.88rem;color:var(--gray);margin-top:3px}
+.member .tp{font-size:.88rem;color:#3D5567;margin-top:7px;line-height:1.65}
+.alumni{list-style:none;padding:0;margin:0;font-size:.98rem}
+.alumni li{padding:12px 0;border-bottom:1px solid var(--line);color:var(--gray)}
+.alumni li b{font-weight:600;color:var(--ink);margin-right:10px}
 
 /* ── 푸터 ────────────────────────────────── */
-footer{background:var(--deep);color:#C3DBE7;padding:80px 0 40px;font-size:.92rem;margin-top:0}
-footer h2{color:#fff;font-size:1.3rem;margin-bottom:26px}
+footer{background:var(--deep);color:#C3DBE7;padding:84px 0 42px;font-size:1rem}
+footer h2{color:#fff;font-size:1.4rem;margin-bottom:28px}
 footer a{color:#A5D3E6}
-.fgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
-.fgrid p{margin:0 0 8px}
-.recruit{margin-top:40px;padding:20px 24px;border-left:2px solid var(--sun);
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:44px}
+.fgrid p{margin:0 0 9px}
+.recruit{margin-top:42px;padding:22px 26px;border-left:2px solid var(--sun);
   background:rgba(255,255,255,.06);color:#E3F0F6}
 .recruit p{margin:0}
-.copy{margin-top:52px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);
-  font-size:.78rem;color:#87A7B8}
+.copy{margin-top:54px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16);
+  font-size:.84rem;color:#87A7B8}
 @media(max-width:600px){.fgrid{grid-template-columns:1fr;gap:26px}}
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════
-     여기부터 글자만 고치시면 됩니다
-     ══════════════════════════════════════════════════ -->
-
 <header>
   <div class="wrap bar">
-	  <div class="brand">강원대학교 수치모델 연구실<em>KNU Numerical Weather Prediction Group</em></div>
+    <div class="brand">강원대학교 수치모델 연구실<em>KNU Numerical Weather Prediction Group</em></div>
     <nav>
       <ul>
         <li><a href="#research">연구</a></li>
         <li><a href="#people">구성원</a></li>
-        <li><a href="#publications">논문</a></li>
+        <li><a href="publications.html">논문</a></li>
         <li><a href="#contact">연락처</a></li>
       </ul>
     </nav>
@@ -200,19 +191,15 @@ footer a{color:#A5D3E6}
     <div>
       <div class="topic">
         <h3>전지구 모델링</h3>
-        <p>대규모 기상 현상의 예측을 위해 전지구 모델을 개발하고 개선합니다. 
-	   이를 통해 모델의 정확성과 효율성을 향상시키며, 더 나은 날씨 예측을 위한 연구를 수행합니다.</p>
+        <p>대규모 기상 현상의 예측을 위해 전지구 모델을 개발하고 개선합니다. 이를 통해 모델의 정확성과 효율성을 향상시키며, 더 나은 날씨 예측을 위한 연구를 수행합니다.</p>
       </div>
       <div class="topic">
         <h3>지역 모델링</h3>
-        <p>특정 지역 또는 도시의 날씨를 예측하기 위해 지역 모델을 개발하고 적용합니다.
-	   이를 통해 지역적인 기상변화를 예측하여 지역사회 및 산업에 유용한 정보를 제공합니다.</p>
+        <p>특정 지역 또는 도시의 날씨를 예측하기 위해 지역 모델을 개발하고 적용합니다. 이를 통해 지역적인 기상변화를 예측하여 지역사회 및 산업에 유용한 정보를 제공합니다.</p>
       </div>
       <div class="topic">
         <h3>대기역학</h3>
-        <p>대기 역학은 지구의 대기가 어떻게 움직이고, 왜 일어나는지를 이해하는데 중요합니다.
-	대기 역학은 다양한 자연현상을 설명하고 예측하는데 사용됩니다.
-	날씨 예보, 기후 모델링과 같은 응용 분야에서 대기 역학의 원리와 이론을 적용하여 다양한 문제를 해결합니다.</p>
+        <p>대기 역학은 지구의 대기가 어떻게 움직이고, 왜 일어나는지를 이해하는 데 중요합니다. 다양한 자연현상을 설명하고 예측하는 데 사용되며, 날씨 예보와 기후 모델링 같은 응용 분야에서 그 원리와 이론을 적용하여 여러 문제를 해결합니다.</p>
       </div>
     </div>
   </div>
@@ -225,14 +212,13 @@ footer a{color:#A5D3E6}
       <div class="pi">
         <div class="ph">사진</div>
         <div>
-          <h3>홍길동</h3>
+          <h3>교수님 성함</h3>
           <p class="role">교수 · Principal Investigator</p>
-          <p>연구 경력과 관심사를 한 문단으로 소개합니다. 학위와 이전 소속,
-             지금 집중하는 주제를 담으면 충분합니다.</p>
+          <p>연구 경력과 관심사를 한 문단으로 소개합니다. 학위와 이전 소속, 지금 집중하고 있는 주제를 담으면 충분합니다.</p>
           <dl>
             <div><dt>학력</dt><dd>○○대학교 박사 (연도)</dd></div>
             <div><dt>경력</dt><dd>○○연구소 연구원 (연도–연도)</dd></div>
-            <div><dt>이메일</dt><dd><a href="mailto:name@univ.ac.kr">name@univ.ac.kr</a></dd></div>
+            <div><dt>이메일</dt><dd><a href="mailto:name@kangwon.ac.kr">name@kangwon.ac.kr</a></dd></div>
             <div><dt>링크</dt><dd><a href="#">Google Scholar</a> · <a href="#">CV</a></dd></div>
           </dl>
         </div>
@@ -242,85 +228,69 @@ footer a{color:#A5D3E6}
   </div>
 </section>
 
-<section id="publications">
-  <div class="wrap cols">
-    <h2>논문<em>Publications</em></h2>
-    <div id="pub-slot"></div>
-  </div>
-</section>
-
 <footer id="contact">
   <div class="wrap">
     <h2>연락처</h2>
     <div class="fgrid">
       <div>
-        <p>○○대학교 ○○관 000호</p>
-        <p>서울특별시 ○○구 ○○로 00</p>
-        <p><a href="mailto:name@univ.ac.kr">name@univ.ac.kr</a> · 02-000-0000</p>
+        <p>강원대학교 자연과학대학 대기환경과학과 ○○관 000호</p>
+        <p>강원특별자치도 춘천시 강원대학길 1</p>
+        <p><a href="mailto:name@kangwon.ac.kr">name@kangwon.ac.kr</a> · 033-000-0000</p>
       </div>
       <div>
-        <p><a href="#">Google Scholar</a></p>
+        <p><a href="publications.html">연구 실적</a></p>
         <p><a href="#">학과 홈페이지</a></p>
-        <p><a href="#">GitHub</a></p>
+        <p><a href="#">Google Scholar</a></p>
       </div>
     </div>
     <div class="recruit">
       <p>학부 인턴, 석·박사과정 연구원, 박사후연구원을 모집합니다.
          관심 있는 분은 간단한 소개와 함께 메일로 연락해 주세요.</p>
     </div>
-    <p class="copy">© 2026 연구실 이름</p>
+    <p class="copy">© 2026 KNU Numerical Weather Prediction Group</p>
   </div>
 </footer>
 
 <script>
 /* ══════════════════════════════════════════════════════
-   구성원과 논문은 아래 목록만 고치면 됩니다.
-   사람이 들어오면 { } 한 덩어리를 복사해서 붙이고,
-   나가면 그 덩어리를 지우세요. 쉼표를 빠뜨리지 않도록 주의.
+   구성원 목록 — 사람이 들어오면 { } 한 덩어리를 복사해
+   붙이고, 나가면 지우세요. 쉼표를 빠뜨리지 않도록 주의.
    사진은 photos 폴더에 넣고 파일 이름을 적습니다.
-   사진이 아직 없으면 photo 값을 "" 로 두면 회색 자리가 나옵니다.
+   사진이 없으면 photo 값을 "" 로 두면 회색 자리가 나옵니다.
    ══════════════════════════════════════════════════════ */
 
 const MEMBERS = [
   { group:"박사과정", list:[
-    { name:"김○○", meta:"2023– ", topic:"연구 주제 한 줄", photo:"" },
-    { name:"이○○", meta:"2024– ", topic:"연구 주제 한 줄", photo:"" },
+    { name:"이름", meta:"2023–", topic:"연구 주제 한 줄", photo:"" },
+    { name:"이름", meta:"2024–", topic:"연구 주제 한 줄", photo:"" },
   ]},
   { group:"석사과정", list:[
-    { name:"박○○", meta:"2025– ", topic:"연구 주제 한 줄", photo:"" },
-    { name:"최○○", meta:"2025– ", topic:"연구 주제 한 줄", photo:"" },
+    { name:"이름", meta:"2025–", topic:"연구 주제 한 줄", photo:"" },
+    { name:"이름", meta:"2025–", topic:"연구 주제 한 줄", photo:"" },
   ]},
   { group:"학부 인턴", list:[
-    { name:"정○○", meta:"2026 여름", topic:"", photo:"" },
+    { name:"이름", meta:"2026", topic:"", photo:"" },
   ]},
 ];
 
 const ALUMNI = [
-  { name:"강○○", detail:"석사 (2024) · 현재 소속" },
-  { name:"윤○○", detail:"박사 (2023) · 현재 소속" },
-];
-
-const PUBLICATIONS = [
-  { year:2026, title:"논문 제목을 여기에 적습니다",
-    authors:"저자1, 저자2, 저자3", journal:"Journal Name", info:"12, 345–360", doi:"#" },
-  { year:2026, title:"또 다른 논문 제목",
-    authors:"저자1, 저자2", journal:"Journal Name", info:"8, 100–115", doi:"#" },
-  { year:2025, title:"작년에 낸 논문 제목",
-    authors:"저자1, 저자2", journal:"Journal Name", info:"30, 55–70", doi:"" },
+  { name:"이름", detail:"석사 (2024) · 현재 소속" },
+  { name:"이름", detail:"박사 (2023) · 현재 소속" },
 ];
 
 /* ─── 아래는 손대지 않아도 됩니다 ─────────────── */
-const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const photoBox = (src, alt, cls) => src
-  ? `<div class="ph ${cls}"><img src="${esc(src)}" alt="${esc(alt)}" style="width:100%;height:100%;object-fit:cover"></div>`
-  : `<div class="ph ${cls}">사진</div>`;
+const esc = s => String(s ?? "").replace(/[&<>"]/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const photoBox = (src, alt) => src
+  ? `<div class="ph"><img src="${esc(src)}" alt="${esc(alt)}" style="width:100%;height:100%;object-fit:cover"></div>`
+  : `<div class="ph">사진</div>`;
 
 document.getElementById("member-slot").innerHTML =
   MEMBERS.map(g => `
     <p class="glabel">${esc(g.group)}</p>
     <div class="members">${g.list.map(m => `
       <div class="member">
-        ${photoBox(m.photo, m.name, "")}
+        ${photoBox(m.photo, m.name)}
         <p class="nm">${esc(m.name)}</p>
         <p class="mt">${esc(m.meta)}</p>
         ${m.topic ? `<p class="tp">${esc(m.topic)}</p>` : ""}
@@ -329,29 +299,15 @@ document.getElementById("member-slot").innerHTML =
   + (ALUMNI.length ? `<p class="glabel">졸업생</p><ul class="alumni">${
       ALUMNI.map(a => `<li><b>${esc(a.name)}</b>${esc(a.detail)}</li>`).join("")}</ul>` : "");
 
-const byYear = {};
-PUBLICATIONS.forEach(p => (byYear[p.year] ||= []).push(p));
-document.getElementById("pub-slot").innerHTML =
-  Object.keys(byYear).sort((a,b) => b-a).map(y => `
-    <p class="year">${esc(y)}</p>
-    <ul class="pubs">${byYear[y].map(p => `
-      <li>
-        <span class="t">${esc(p.title)}</span>
-        ${esc(p.authors)} (${esc(p.year)}).
-        <span class="j">${esc(p.journal)}</span>${p.info ? ", " + esc(p.info) : ""}.
-        ${p.doi ? ` <a href="${esc(p.doi)}">doi</a>` : ""}
-      </li>`).join("")}
-    </ul>`).join("");
-
 // 스크롤 위치에 따라 상단 메뉴 표시
 const links = [...document.querySelectorAll("nav a")];
 const obs = new IntersectionObserver(es => {
   es.forEach(e => {
     if (!e.isIntersecting) return;
-    links.forEach(a => a.classList.toggle("on", a.hash === "#" + e.target.id));
+    links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
   });
 }, { rootMargin: "-40% 0px -55% 0px" });
-["research","people","publications","contact"].forEach(id => {
+["research","people","contact"].forEach(id => {
   const el = document.getElementById(id); if (el) obs.observe(el);
 });
 </script>
