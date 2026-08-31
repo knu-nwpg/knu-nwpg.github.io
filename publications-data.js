@@ -17,50 +17,12 @@
 const RECORDS = [
 
   {
-    type: "논문",
-    year: 2025,
-    kind: "SCI(E)",
-    field: "수치모델",
-    title: "Numerical Weather Prediction model coupling strategy for regional forecast",
-    authors: "Hong, S., Lee, S.",
-    link: "https://doi.org/",
-  },
-  {
-    type: "논문",
-    year: 2025,
-    kind: "Non-SCI",
-    field: "수치모델",
-    title: "전지구예측모델 개발을 위한 검증분석 도구: Korean Integrated Model Analysis",
-    authors: "이수현, 홍길동",
-    link: "",
-  },
-  {
-    type: "논문",
-    year: 2024,
-    kind: "SCI(E)",
-    field: "자료동화",
-    title: "Impact of different scale-aware cumulus parameterizations on KIM",
-    authors: "Lee, S., Kim, J.",
-    link: "https://doi.org/",
-  },
-
-  {
-    type: "포스터",
-    year: 2025,
-    kind: "한국기상학회 가을학술대회",
-    field: "수치모델",
-    title: "분광요소법 기반 역학코어의 수치 안정성 분석",
-    authors: "이수현",
-    link: "",
-  },
-
-  {
     type: "초록",
-    year: 2025,
-    kind: "EGU General Assembly",
-    field: "수치모델",
-    title: "A variable-resolution approach for KIM with a stretched grid",
-    authors: "Lee, S.",
+    year: 2024,
+    kind: "한국기상학회 가을학술대회",
+    field: "대기역학 및 수치모델링 분과",
+    title: "KIM 고해상도 모델의 집중호우 모의 성능 분석",
+    authors: "이수현, 박정우, 김명진, 최석진",
     link: "",
   },
 
