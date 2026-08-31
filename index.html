@@ -109,6 +109,7 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 
 /* ── 교수 ────────────────────────────────── */
 .pi{display:grid;grid-template-columns:190px 1fr;gap:36px;align-items:start}
+.cv{margin-top:30px}
 .cv h4{font-size:1.08rem;font-weight:700;color:var(--ink);
   margin:34px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
 .cv h4:first-child{margin-top:0}
@@ -120,20 +121,16 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 .cv .d{display:inline-block;min-width:132px;color:var(--gray);font-weight:500}
 @media(max-width:600px){
 .cv .d{display:block;min-width:0;margin-bottom:2px;font-size:.9rem}
-}ns:210px 1fr;gap:44px;align-items:start;margin-bottom:16px}
-.ph{background:var(--haze);border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;color:#9AB0BD;font-size:.8rem;overflow:hidden}
+}
+.ph{background:var(--haze);border:1px solid var(--line);overflow:hidden;
+  display:flex;align-items:center;justify-content:center;color:#9AB0BD;font-size:.8rem}
 .pi .ph{aspect-ratio:3/4}
 .pi h3{font-size:1.45rem}
 .pi .role{color:var(--sea);font-size:.96rem;margin:6px 0 20px}
 .pi > div > p{font-size:1.02rem;color:#3D5567;line-height:1.85;max-width:66ch}
-
-.pi dt{flex:0 0 70px;color:var(--gray);font-weight:400}
 @media(max-width:600px){.pi{grid-template-columns:1fr;gap:22px}.pi .ph{max-width:190px}}
 
 /* ── 구성원 ──────────────────────────────── */
-.ph{background:var(--haze);border:1px solid var(--line);overflow:hidden;
-  display:flex;align-items:center;justify-content:center;color:#9AB0BD;font-size:.8rem}
 .glabel{font-size:1.1rem;font-weight:700;color:var(--ink);
   margin:50px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
 .members{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:30px}
@@ -234,12 +231,12 @@ footer a{color:#A5D3E6}
           <h3>최석진</h3>
           <p class="role">교수 · Principal Investigator</p>
           <p>수치모델링, 종관기상학</p>
-	  <div class="cv">
+          <div class="cv">
             <h4>학력</h4>
             <ul>
-            <li><span class="d">1999.3 ~ 2003.2</span> 서울대학교 지구환경과학부 대기과학전공 이학사</li>
-            <li><span class="d">2003.3 ~ 2010.8</span> 서울대학교 지구환경과학부 대기과학전공 이학박사 (석박통합)</li>
-          </ul>
+              <li><span class="d">1999.3 ~ 2003.2</span> 서울대학교 지구환경과학부 대기과학전공 이학사</li>
+              <li><span class="d">2003.3 ~ 2010.8</span> 서울대학교 지구환경과학부 대기과학전공 이학박사 (석박통합)</li>
+            </ul>
 
           <h4>경력</h4>
           <ul>
@@ -259,8 +256,9 @@ footer a{color:#A5D3E6}
           <ul>
             <li><span class="d">이메일</span> <a href="mailto:sjc@kangwon.ac.kr">sjc@kangwon.ac.kr</a></li>
             <li><span class="d">연락처</span> 033-640-2318</li>
-            <li><span class="d">링크</span> <a href="https://scholar.google.com/citations?hl=ko&user=L3uOt0wAAAAJ">Google Scholar</a></li>
+            <li><span class="d">링크</span> <a href="https://scholar.google.com/citations?hl=ko&amp;user=L3uOt0wAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
           </ul>
+          </div>
         </div>
       </div>
       <div id="member-slot"></div>
@@ -301,24 +299,24 @@ footer a{color:#A5D3E6}
 
 const MEMBERS = [
   { group:"박사과정", list:[
-    { name:"이수현", rank:"랩장", meta:"2023–", 
+    { name:"이수현", rank:"랩장", meta:"2023 –", 
       edu:[
 	"강릉원주대학교 대기환경과학과 이학사",
 	"강릉원주대학교 대기환경과학과 이학석사"
       ], photo:"photos/shlee.jpg" },
   ]},
   { group:"석사과정", list:[
-    { name:"박정우", rank : "부랩장", meta:"2024–", 
+    { name:"박정우", rank : "부랩장", meta:"2024 –", 
       edu:[
 	"강릉원주대학교 대기환경과학과 이학사"
       ], photo:"" },
-    { name:"신재윤", meta:"2026–",
+    { name:"신재윤", meta:"2026 –",
       edu:[
 	"강릉원주대학교 대기환경과학과 이학사"
       ], photo:"" },
   ]},
   { group:"학석사통합과정", list:[
-    { name:"김명진", meta:"2025-", photo:"" },
+    { name:"김명진", meta:"2025 -", photo:"" },
   ]},
   { group:"학부 인턴", list:[
     { name:"이름", meta:"2026", topic:"", photo:"" },
