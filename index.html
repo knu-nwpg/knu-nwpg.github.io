@@ -35,7 +35,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--paper);color:var(--ink);
-  font-size:16px;line-height:1.8;letter-spacing:-.011em;
+  font-size:18px;line-height:1.8;letter-spacing:-.011em;
   word-break:keep-all;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-weight:700;line-height:1.4;letter-spacing:-.03em;margin:0}
 p{margin:0 0 1em}
@@ -108,7 +108,7 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 .topic p{margin:0;color:var(--gray);font-size:1.03rem;line-height:1.85;max-width:70ch}
 
 /* ── 교수 ────────────────────────────────── */
-.pi{display:grid;grid-template-colum.cv{margin-top:32px}
+.pi{display:grid;grid-template-columns:160px 1fr;gap:36px;align-items:start}
 .cv h4{font-size:1.08rem;font-weight:700;color:var(--ink);
   margin:34px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
 .cv h4:first-child{margin-top:0}
@@ -134,7 +134,7 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 /* ── 구성원 ──────────────────────────────── */
 .glabel{font-size:1.1rem;font-weight:700;color:var(--ink);
   margin:50px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
-.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:30px}
+.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:30px}
 .member .ph{aspect-ratio:1/1}
 .member .nm{font-size:1.08rem;font-weight:600;margin-top:14px}
 .member .mt{font-size:.88rem;color:var(--gray);margin-top:3px}
@@ -299,24 +299,24 @@ footer a{color:#A5D3E6}
 
 const MEMBERS = [
   { group:"박사과정", list:[
-    { name:"이수현", rank:"랩장", meta:"2023–", topic:"한국형수치예보모델",
+    { name:"이수현", rank:"랩장", meta:"2023–", 
       edu:[
 	"강릉원주대학교 대기환경과학과 이학사",
 	"강릉원주대학교 대기환경과학과 이학석사"
       ], photo:"photos/shlee.jpg" },
   ]},
   { group:"석사과정", list:[
-    { name:"박정우", rank : "부랩장", meta:"2024–", topic:"한국형수치예보모델", 
+    { name:"박정우", rank : "부랩장", meta:"2024–", 
       edu:[
 	"강릉원주대학교 대기환경과학과 이학사"
       ], photo:"" },
-    { name:"신재윤", meta:"2026–", topic:"한국형수치예보모델", 
+    { name:"신재윤", meta:"2026–",
       edu:[
 	"강릉원주대학교 대기환경과학과 이학사"
       ], photo:"" },
   ]},
   { group:"학석사통합과정", list:[
-    { name:"김명진", meta:"2025-", topic:"한국형수치예보모델", photo:"" },
+    { name:"김명진", meta:"2025-", photo:"" },
   ]},
   { group:"학부 인턴", list:[
     { name:"이름", meta:"2026", topic:"", photo:"" },
